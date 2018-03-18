@@ -26,3 +26,11 @@ let ``Parse simple ket`` () =
 [<Fact>]
 let ``Parse braket product`` () = 
     test pbraketProduct "<A|B>" |> should equal <| Product(Bra "A", Ket "B")
+
+[<Fact>]
+let ``Parse bra addition`` () = 
+    test pbraAddition "<A| + <B|" |> should equal <| Addition(Bra "A", Bra"B")
+
+[<Fact>]
+let ``Parse ket addition`` () = 
+    test pketAddition "|A> + |B>" |> should equal <| Addition(Ket "A", Ket "B")

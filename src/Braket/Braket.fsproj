@@ -3,8 +3,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Library.fs" />
-    <Compile Include="*.fs" />
+    <Compile Include="Parse.fs" />
+    <Compile Include="Vars.fs" />
+    <Compile Include="Rules.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FParsec" Version="1.0.3" />

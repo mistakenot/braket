@@ -6,7 +6,6 @@
     <ProjectReference Include="..\..\src\Braket\Braket.fsproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.fs" />
     <Compile Include="*Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

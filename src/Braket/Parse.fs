@@ -14,12 +14,12 @@ let mapSuccess: Parser<'a, 'u> -> ('a -> 'b) -> Parser<'b, 'u> = fun parser mapp
     let! value = parser
     return value |> mapper }
 
-// let (</>) = mapSuccess
+let (</>) = mapSuccess
 
-let pbra = pstring "<" >>. asciiLetter .>> pstring "|" 
+let pbra: Parser<Statement, unit> = pstring "<" >>. asciiLetter .>> pstring "|"  </> (fun c -> c.ToString() |> Bra)
 
-let pket = pstring "|" >>. asciiLetter .>> pstring ">" </> (fun c -> c.ToString() |> Ket)
+let pket: Parser<Statement, unit> = pstring "|" >>. asciiLetter .>> pstring ">" </> (fun c -> c.ToString() |> Ket)
 
-let pproductKet = asciiLetter .>> pstring ">" </> (fun c -> c.ToString() |> Ket)
+let pproductKet: Parser<Statement, unit> = asciiLetter .>> pstring ">" </> (fun c -> c.ToString() |> Ket)
 
-// let pbraketProduct = pipe2 pbra pproductKet (fun bra ket -> Product(bra, ket))
+let pbraketProduct = pipe2 pbra pproductKet (fun bra ket -> Product(bra, ket))

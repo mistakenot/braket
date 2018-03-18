@@ -4,7 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Library.fs" />
-    <Compile Include="Lexer.fs" />
     <Compile Include="*.fs" />
   </ItemGroup>
   <ItemGroup>

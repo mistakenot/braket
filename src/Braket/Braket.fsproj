@@ -5,5 +5,9 @@
   <ItemGroup>
     <Compile Include="Library.fs" />
     <Compile Include="Lexer.fs" />
+    <Compile Include="*.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FParsec" Version="1.0.3" />
   </ItemGroup>
 </Project>

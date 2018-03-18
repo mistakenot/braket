@@ -6,3 +6,7 @@ open Parse
 type VarLookup = Statement -> string
 
 type Var = string * Statement
+
+let empty: VarLookup = fun _ -> "A"
+
+let getOrAdd: Statement -> VarLookup -> (string * VarLookup) = fun statement lookup ->

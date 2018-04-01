@@ -5,6 +5,8 @@ open Vars
 
 type Rule = VarLookup -> Statement -> Statement option
 
+let identity (varOf: VarLookup) (statement: Statement) = statement |> Some
+
 let sumOfTwoKetsEqualsKet (varOf: VarLookup) (statement: Statement) = 
     match statement with
     | Addition(Ket a, Ket b) -> 
@@ -18,6 +20,8 @@ let sumOfTwoKetCommutes (varOf: VarLookup) (statement: Statement) =
 
 type RuleList = (string * Rule) list
 
+let empty: RuleList = []
+
 let ruleExists: string -> RuleList -> bool = fun name -> List.exists (fun (n, _) -> n = name)
 
 let addRule name rule list = 
@@ -30,5 +34,6 @@ let getTransforms: RuleList -> VarLookup -> Statement -> Statement list = fun ru
 
 let allRules = 
     addRule "Sum of two kets equals ket" sumOfTwoKetsEqualsKet >>
-    addRule "Sum of two kets commutes" sumOfTwoKetCommutes 
+    addRule "Sum of two kets commutes" sumOfTwoKetCommutes >>
+    addRule "Identity rule" identity
     <| []

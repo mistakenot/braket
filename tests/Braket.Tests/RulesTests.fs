@@ -27,4 +27,4 @@ let ``Sum of two keys commute`` () =
 [<Fact>]
 let ``Rule collection can return all transformations for add ket statement`` () = 
     let actual = getTransforms allRules lookup addKets
-    List.length actual |> should equal 2
+    List.length actual |> should equal 3

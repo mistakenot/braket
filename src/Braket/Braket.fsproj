@@ -6,6 +6,7 @@
     <Compile Include="Parse.fs" />
     <Compile Include="Vars.fs" />
     <Compile Include="Rules.fs" />
+    <Compile Include="Analyse.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FParsec" Version="1.0.3" />
